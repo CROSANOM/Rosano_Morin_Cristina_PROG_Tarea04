@@ -20,8 +20,11 @@ public class Punto {
 
 	public Punto(double x, double y) {
 
+		this.x = x;
+		this.y = y;
+
 		this.x = 2.3; // pasar el valor 2.3 ojo todos los objetos que se deriven
-						// de este constructor
+		// de este constructor
 		this.y = 1.3;
 
 	}
