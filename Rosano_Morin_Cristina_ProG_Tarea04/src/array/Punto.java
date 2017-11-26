@@ -16,13 +16,28 @@ public class Punto {
 	public Punto() {
 	}
 
-	// constructor con parametros de x e y 
-	
+	// constructor con parametros de x e y
+
 	public Punto(double x, double y) {
+
 		this.x = 2.3; // pasar el valor 2.3 ojo todos los objetos que se deriven
 						// de este constructor
 		this.y = 1.3;
 
+	}
+
+	/**
+	 * @return the x
+	 */
+	protected double getX() {
+		return x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	protected double getY() {
+		return y;
 	}
 
 }
