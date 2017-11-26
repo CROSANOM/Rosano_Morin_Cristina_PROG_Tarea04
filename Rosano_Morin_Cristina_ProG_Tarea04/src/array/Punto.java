@@ -40,4 +40,17 @@ public class Punto {
 		return y;
 	}
 
-}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Punto [x=" + x + ", y=" + y + "]";
+	}
+
+	
+	
+	
+	
+	
+}//fin class
