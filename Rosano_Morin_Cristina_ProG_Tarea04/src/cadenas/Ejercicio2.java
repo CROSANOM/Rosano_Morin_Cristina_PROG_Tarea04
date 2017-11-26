@@ -38,7 +38,8 @@ public class Ejercicio2 {
 			System.out.println("INTRODUCE LA MATRICULA:");
 			String matricula = Entrada.cadena();
 			// Se declara un patron para la matricula ( empieza 
-			Pattern pat = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$");
+//			Pattern pat = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$"); No incluye la restriccion de las vocales 
+			Pattern pat = Pattern.compile("^[0-9]{4}[A-Z&&[^AEIOIU]]{3}$");
 			Matcher mat1 = pat.matcher((matricula));
 			// Comprueba que matricula empereja con el patron
 			
