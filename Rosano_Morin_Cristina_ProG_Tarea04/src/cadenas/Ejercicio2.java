@@ -29,7 +29,7 @@ public class Ejercicio2 {
 
 		// declara la variable mat que servirá para salir del bucle
 
-		boolean mat = false;
+		boolean comprobarMatricula = false;
 		// se inicia el bucle do - while hasta que se cumpla la condición se
 		// interara solitando y validando matriculas
 		do {
@@ -37,21 +37,41 @@ public class Ejercicio2 {
 			// solicitamos al usario que introduzca matricula
 			System.out.println("INTRODUCE LA MATRICULA:");
 			String matricula = Entrada.cadena();
-			// Se declara un patron para la matricula ( empieza 
-//			Pattern pat = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$"); No incluye la restriccion de las vocales 
-			Pattern pat = Pattern.compile("^[0-9]{4}[A-Z&&[^AEIOIU]]{3}$");
-			Matcher mat1 = pat.matcher((matricula));
-			// Comprueba que matricula empereja con el patron
+			// Se declara un patron para la matricula ( empieza con 4 digitos 3
+			// letras sin incluir las vocales )
+			// Pattern pat = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$"); No
+			// incluye la restriccion de las vocales
+			Pattern pat = Pattern.compile("^([0-9]{4})([A-Z&&[^AEIOIU]]{3}$)");
+			// Se pasa a mat1 a traves del metodo matcher la info guarda
+			// matricula
+			Matcher mat = pat.matcher((matricula));
+			/*
+			 * Se buscan con Metodo fin los grupos , importante hay que definirlos previamente en la expresion regular
+			 * haciendo uso de los  parentesis  los grupos
+			 */
+			String grupoNumeros;// defino una variable en la que almacenar los numeros.  
+			String grupoLetras;//defino   una variable en la que se almacena las letras 
 			
-			if (mat1.matches()) {
+			// Metodo fin recuperar informacion que continen los grupos
+			mat.find();
+
+			grupoNumeros=mat.group(1);
+			grupoLetras=mat.group(2);
+			
+			// Imprimo por separado los numeros y  las letras de mi coche 
+			
+			// Comprueba que matricula empereja con el patron
+
+			if (mat.matches()) {
 				System.out.println("La matricula es correcta");
-				mat = true; // variable que se declara de manera global 
+				// variable que se declara de manera global
+				comprobarMatricula = true;
 
 			} else {
 				System.out.println("La matricula es incorrecta");
 			}
 
-		} while (!mat);// validar la condicion para salir del bucle 
+		} while (!comprobarMatricula);// validar la condicion para salir del bucle
 	}
 
 }
