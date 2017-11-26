@@ -40,7 +40,9 @@ public class Punto {
 		return y;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -48,7 +50,20 @@ public class Punto {
 		return "Punto [x=" + x + ", y=" + y + "]";
 	}
 
-	
-	
-	
-}//fin class
+	public static double distancia(double x, double y) {
+		// declarar distancia
+
+		double resultadoDistancia = 0;
+		double raizCuadrada = 0;
+
+		double restaPotenciaX = ((Math.pow(x, 2) - (Math.pow(x, 1))));
+		double cuadradoRestaPotenciaX = Math.pow(restaPotenciaX, 2);
+
+		double restaPotenciaY = ((Math.pow(y, 2) + (Math.pow(y, 1))));
+		double cuadradoRestaPotenciaY = Math.pow(restaPotenciaY, 2);
+
+		raizCuadrada = Math.sqrt(cuadradoRestaPotenciaX + cuadradoRestaPotenciaY);
+		return resultadoDistancia = raizCuadrada;
+	}
+
+}// fin class
