@@ -9,7 +9,7 @@ import utilidades.Entrada;
 
 /**
  * @author crosanom
- *
+    version 1.5
  */
 
 /**
@@ -30,48 +30,46 @@ public class Ejercicio2 {
 		// declara la variable mat que servirá para salir del bucle
 
 		boolean comprobarMatricula = false;
-		// se inicia el bucle do - while hasta que se cumpla la condición se
-		// interara solitando y validando matriculas
-		do {
 
+		/*
+		 * se inicia el bucle do - while hasta que se cumpla la condición se
+		 * interara solitando y validando matriculas
+		 */
+		do {
 			// solicitamos al usario que introduzca matricula
 			System.out.println("INTRODUCE LA MATRICULA:");
 			String matricula = Entrada.cadena();
-			// Se declara un patron para la matricula ( empieza con 4 digitos 3
-			// letras sin incluir las vocales )
-			// Pattern pat = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$"); No
-			// incluye la restriccion de las vocales
-			Pattern pat = Pattern.compile("^([0-9]{4})([A-Z&&[^AEIOIU]]{3}$)");
-			// Se pasa a mat1 a traves del metodo matcher la info guarda
-			// matricula
-			Matcher mat = pat.matcher((matricula));
+
 			/*
-			 * Se buscan con Metodo fin los grupos , importante hay que definirlos previamente en la expresion regular
-			 * haciendo uso de los  parentesis  los grupos
+			 * Se declara un patron para la matricula ( patron empieza con 4
+			 * digitos y termina 3 letras sin incluir las vocales ), se usa el
+			 * método compile de la clase Patter
 			 */
-			String grupoNumeros;// defino una variable en la que almacenar los numeros.  
-			String grupoLetras;//defino   una variable en la que se almacena las letras 
-			
-			// Metodo fin recuperar informacion que continen los grupos
-			mat.find();
 
-			grupoNumeros=mat.group(1);
-			grupoLetras=mat.group(2);
-			
-			// Imprimo por separado los numeros y  las letras de mi coche 
-			
-			// Comprueba que matricula empereja con el patron
+			Pattern patron = Pattern.compile("^([0-9]{4})([A-Z&&[^AEIOIU]]{3}$)");
 
-			if (mat.matches()) {
-				System.out.println("La matricula es correcta");
-				// variable que se declara de manera global
+			/*
+			 * Se pasa a a través del método matcher la info guarda matricula
+			 */
+
+			Matcher emparejador = patron.matcher((matricula));
+
+			if (emparejador.find()) {
+				String grupoNum = emparejador.group(1);
+				String grupoLetras = emparejador.group(2);
+				System.out.println("La matricula de mi coche es:" + matricula);
+				System.out.println("Esta compuesta por 4 digitos:" + grupoNum + " y 3 letras " + grupoLetras);
+			}
+
+			if (emparejador.matches()) {
+				// System.out.println("matricula es correcta");
 				comprobarMatricula = true;
 
 			} else {
 				System.out.println("La matricula es incorrecta");
 			}
+		} while (!comprobarMatricula);// validar la condicion para salir
 
-		} while (!comprobarMatricula);// validar la condicion para salir del bucle
 	}
 
 }
