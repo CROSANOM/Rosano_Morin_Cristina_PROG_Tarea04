@@ -16,16 +16,12 @@ public class Punto {
 	public Punto() {
 	}
 
-	// constructor con parametros de x e y
+	// constructor que le pasamos los parametros de x e y
 
 	public Punto(double x, double y) {
 
 		this.x = x;
 		this.y = y;
-
-		this.x = 2.3; // pasar el valor 2.3 ojo todos los objetos que se deriven
-		// de este constructor
-		this.y = 1.3;
 
 	}
 
@@ -53,20 +49,17 @@ public class Punto {
 		return "Punto [x=" + x + ", y=" + y + "]";
 	}
 
-	public static double distancia(double x, double y) {
-		// declarar distancia
-
-		double resultadoDistancia = 0;
-		double raizCuadrada = 0;
-
-		double restaPotenciaX = ((Math.pow(x, 2) - (Math.pow(x, 1))));
-		double cuadradoRestaPotenciaX = Math.pow(restaPotenciaX, 2);
-
-		double restaPotenciaY = ((Math.pow(y, 2) + (Math.pow(y, 1))));
-		double cuadradoRestaPotenciaY = Math.pow(restaPotenciaY, 2);
-
-		raizCuadrada = Math.sqrt(cuadradoRestaPotenciaX + cuadradoRestaPotenciaY);
-		return resultadoDistancia = raizCuadrada;
+	public static double distancia(Punto miPunto , Punto miOtroPunto) {
+		
+		double resultadoFormula = 0;
+		
+		// Calcular distancia entre puntos.
+		double xResultante = Math.pow((miPunto.getX() - miOtroPunto.getX()) , 2);
+		double yResultante = Math.pow((miPunto.getY() - miOtroPunto.getY()) , 2);
+	
+		resultadoFormula = Math.sqrt( xResultante + yResultante );
+		
+		return resultadoFormula;
 	}
 
 }// fin class
